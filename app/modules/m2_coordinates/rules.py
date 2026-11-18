@@ -1,4 +1,4 @@
-from app.domain import split,aliases
+from app.domain import split,aliases,cloud_spans
 from app.numeric import number
 from app.errors import DomainError
 from app.reasons import isolate
@@ -8,8 +8,7 @@ def apply(ctx):
         try:
             spans=split(r['west'],r['east'])
             if not r['scene']: raise DomainError('MISSING','场景编号为空')
-            if bool(r['cloud_w'])!=bool(r['cloud_e']): raise DomainError('CLOUD','云区端点缺失')
-            cloud=split(r['cloud_w'],r['cloud_e']) if r['cloud_w'] else []
+            cloud=cloud_spans(r['cloud_w'],r['cloud_e'])
             price=number(r['price'])
             if price<0:raise DomainError('RANGE','价格不能为负')
             version=int(r['version'])

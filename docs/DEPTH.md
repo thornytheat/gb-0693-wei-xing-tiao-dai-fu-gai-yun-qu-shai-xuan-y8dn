@@ -28,6 +28,7 @@
 | TRAP-22 | 别名等价类 | 静默覆盖或误计 | 显式裁决并保留证据 | `app/modules/m2_coordinates/rules.py` | `tests/test_m2.py::test_alias_equivalence` |
 | TRAP-23 | 跨日界线 | 静默覆盖或误计 | 显式裁决并保留证据 | `app/modules/m2_coordinates/rules.py` | `tests/test_m2.py::test_dateline_split` |
 | TRAP-25 | 版本有效性 | 静默覆盖或误计 | 显式裁决并保留证据 | `app/modules/m2_coordinates/rules.py` | `tests/test_m2.py::test_newest_version_rules` |
+| TRAP-30 | 多离散云区与重叠条带 | 逐段独立扣除，云洞被重叠条带重新算成可用覆盖 | 云段先合并去重再整体扣除，旧单区间契约兼容重放 | `app/domain.py::cloud_spans`、`app/modules/m3_cloud/rules.py` | `tests/test_m3.py::test_overlapping_cloud_pieces_are_merged`、`tests/test_e2e.py::test_multi_cloud_format_switch_keeps_legacy_batch` |
 
 ## 对账规则
 
