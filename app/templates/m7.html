@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block stage_visual %}{% for r in current.rows %}<div class="terminal-line"><span>{{r["核验项"]}}</span>{{r["结论"]}}</div>{% endfor %}{% endblock %}

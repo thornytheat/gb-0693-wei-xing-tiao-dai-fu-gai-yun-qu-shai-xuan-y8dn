@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block stage_visual %}{% for r in run.usable[:6] %}<div class="terminal-line"><span>{{r.canonical}}</span>{{r.price_n}} CNY</div><div class="track">{% for a,z in r["clear"] %}<i style="left:{{(a|float+180)/3.6}}%;width:{{(z|float-a|float)/3.6}}%"></i>{% endfor %}</div>{% endfor %}{% endblock %}

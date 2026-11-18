@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block stage_visual %}{% for r in current.rows %}<div class="terminal-line"><span>{{r["场景"]}}</span>{{r["新增覆盖_度"]}}°</div>{% endfor %}{% endblock %}
